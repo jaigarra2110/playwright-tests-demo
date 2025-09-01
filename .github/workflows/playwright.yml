@@ -2,9 +2,8 @@ name: Run Playwright Tests
 
 on:
   push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -12,18 +11,19 @@ jobs:
 
     steps:
       - name: Checkout código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Instalar Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Instalar dependencias
-        run: npm install
+        run: npm ci || npm install
 
-      - name: Instalar navegadores Playwright
-        run: npx playwright install --with-deps
+      # 👇 Esta acción instala navegadores y deps del sistema (apt) correctamente
+      - name: Setup Playwright Browsers
+        uses: microsoft/playwright-github-action@v1
 
       - name: Ejecutar pruebas Playwright
         run: npx playwright test
