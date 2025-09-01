@@ -1,4 +1,3 @@
-
 import { test, expect } from '@playwright/test';
 
 test('Verificar título de Playwright', async ({ page }) => {

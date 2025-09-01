@@ -1,23 +1,10 @@
 {
   "name": "playwright-tests-demo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "playwright test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jaigarra2110/playwright-tests-demo.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jaigarra2110/playwright-tests-demo/issues"
-  },
-  "homepage": "https://github.com/jaigarra2110/playwright-tests-demo#readme",
   "devDependencies": {
-    "@playwright/test": "^1.55.0"
+    "@playwright/test": "^1.46.0"
   }
 }

@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Ubuntu 24.04
 
     steps:
       - name: Checkout código
@@ -21,9 +21,8 @@ jobs:
       - name: Instalar dependencias
         run: npm ci || npm install
 
-      # 👇 Esta acción instala navegadores y deps del sistema (apt) correctamente
-      - name: Setup Playwright Browsers
-        uses: microsoft/playwright-github-action@v1
+      - name: Instalar navegadores Playwright + deps del sistema
+        run: npx -y playwright@latest install --with-deps
 
       - name: Ejecutar pruebas Playwright
-        run: npx playwright test
+        run: npx playwright test --reporter=list
